@@ -1,10 +1,8 @@
 import axios from 'axios';
 import {locStorage, requestMethods} from '../enumerators/enums.js'
 import toast from 'react-hot-toast';
-import CurrentHours from '../models/currentHours.models.js';
-import {getTimeFromStr} from '../utils/utils.js'
 
-const BASEURL = 'http://localhost:3031/api';
+const BASEURL = process.env.REACT_APP_BASE_URL;
 const TIMEOUT = 30000;
 const ENDPOINTS = {
   auth: "/authenticate",
@@ -23,7 +21,6 @@ const ENDPOINTS = {
 class Api{
   #api;
 
-  
   constructor(){
     this.#api = axios.create({
       baseURL: BASEURL,
