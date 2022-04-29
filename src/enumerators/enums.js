@@ -10,7 +10,7 @@ const requestMethods = {
 }
 
 const pages = {
-  home: "",
+  home: "/",
   projects: "projects",
   login: "login",
   register: "register",
@@ -22,4 +22,4 @@ const pages = {
 }
 
 
-module.exports = {locStorage, requestMethods, pages}
+export {locStorage, requestMethods, pages}

@@ -7,6 +7,7 @@ import {AddProjectWrapper, AddProjectContainerStyle, AddProjectStyle, AddProject
 import DateInput from "../DateInput/DateInput"
 import Project from "../../models/project.models"
 import CurrentHours from "../../models/currentHours.models.js";
+import { pages } from "../../enumerators/enums.js";
 
 function AddProjectForm(props) {
   const [projectName, setProjectName] = useState("");
@@ -42,7 +43,7 @@ function AddProjectForm(props) {
 
   if(submitted){
     return(
-      <Navigate to="/main" replace={true} />
+      <Navigate to={`/${pages.projects}`} replace={true} />
     )
   }
   

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes as RoutesDOM, Route } from 'react-router-dom';
+import { Routes as RoutesDOM, Route, HashRouter } from 'react-router-dom';
 
 import Home from '../pages/Home/HomeBasic/HomePage';
 import Login from '../pages/Login';
@@ -10,8 +10,10 @@ import Projects from '../pages/Projects';
 import Tasks from '../pages/Tasks';
 import Cron from '../pages/Cron';
 import {pages} from '../enumerators/enums'
+import {writeLog} from '../utils/utils'
 
 function Routes() {
+  writeLog('Starting routes')
   return (
     <RoutesDOM>
       <Route path={`/`} element={<Home />} />

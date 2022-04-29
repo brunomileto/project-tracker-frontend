@@ -67,4 +67,4 @@ function timer(currentHours){
   }
 }
 
-module.exports = Project
+export default Project

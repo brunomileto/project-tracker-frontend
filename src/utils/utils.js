@@ -200,6 +200,12 @@ function timeToStr(time){
   return timeStr;
 }
 
+function writeLog(str, object){
+  console.log(`LOG: ${str}`)
+  if(object != undefined && typeof(object) != 'undefined' && object != null)
+    console.log(object)
+}
+
 // async function encrypt(value){
 //   return await bcrypt.hash(value, 10);
 // };
@@ -208,8 +214,7 @@ function timeToStr(time){
 //   return await bcrypt.compare(value, encryptedValue)
 // }
 
-
-module.exports = {
+export {
   stringHasNumber,
   stringHasCapitalLetters,
   emailValidation,
@@ -230,7 +235,8 @@ module.exports = {
   isValidDateStr,
   stringContainsLetters,
   getTimeFromStr,
-  timeToStr
+  timeToStr,
+  writeLog
   // encrypt,
   // compareEncrypted,
 };

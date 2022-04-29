@@ -3,6 +3,7 @@ import {locStorage, requestMethods} from '../enumerators/enums.js'
 import toast from 'react-hot-toast';
 
 const BASEURL = process.env.REACT_APP_BASE_URL;
+console.log(`Base URL: ${BASEURL}`)
 const TIMEOUT = 30000;
 const ENDPOINTS = {
   auth: "/authenticate",
@@ -58,8 +59,7 @@ class Api{
       method: requestMethods.post,
       url: `${this.#api.defaults.baseURL}${ENDPOINTS.createUser}`,
       headers:{
-        'content-type': 'application/json',
-        Authorization: `Bearer ${token}`
+        'content-type': 'application/json'
       },
       data: {
         "name": 'Bruno teste',

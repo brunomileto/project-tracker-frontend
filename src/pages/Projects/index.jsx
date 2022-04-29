@@ -6,6 +6,7 @@ import PageTitle from "../../components/AppTitle/PageTitle/PageTitle";
 import ScrollList from "../../components/ScrollList/ScrollList";
 import api from "../../services/api";
 import {timeToStr} from '../../utils/utils'
+import Exit from '../../components/ExitBtn/Exit'
 
 
 function Projects(){  
@@ -35,6 +36,7 @@ function Projects(){
       <ProjectsStyle >
         <ListHeader pageName={pages.projects}/>
         <ScrollList page={pages.projects} items={items} />
+        <Exit/>
       </ProjectsStyle>
     </>
   )

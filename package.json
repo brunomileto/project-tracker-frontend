@@ -1,7 +1,30 @@
 {
-  "name": "frontend",
+  "name": "ptracker",
+  "productName": "PTracker",
+  "author": "Bruno Mileto",
+  "description": "PTracker",
   "version": "0.1.0",
   "private": true,
+  "build": {
+    "appId": "com.electron.ptracker",
+    "productName": "PTracker",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "public"
+    },
+    "mac": {
+      "target": "dmg"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": "deb"
+    }
+  },
   "dependencies": {
     "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",
@@ -12,6 +35,8 @@
     "assert": "^2.0.0",
     "axios": "^0.26.0",
     "dotenv": "^16.0.0",
+    "electron-forge": "^5.2.4",
+    "electron-is-dev": "^2.0.0",
     "fs": "^0.0.1-security",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
@@ -26,10 +51,42 @@
     "validator": "^13.7.0",
     "web-vitals": "^2.1.3"
   },
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "pTracker"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin",
+            "linux",
+            "win32"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
+  },
+  "homepage": "./",
   "main": "public/electron.js",
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "npm run react-build && npm run electron-build",
+    "electron-build": "electron-builder",
+    "react-build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dev": "concurrently -k \"SET BROWSER=none&&npm start\" \"npm:electron\"",
@@ -50,7 +107,9 @@
   "devDependencies": {
     "concurrently": "^7.0.0",
     "electron": "^16.0.7",
-    "electron-is-dev": "^2.0.0",
+    "electron-builder": "^23.0.3",
+    "electron-packager": "^15.5.1",
+    "electron-prebuilt-compile": "8.2.0",
     "eslint": "^8.7.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.3.0",

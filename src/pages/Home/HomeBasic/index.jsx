@@ -4,9 +4,10 @@ import AppTitle from '../../../components/AppTitle/AppTitle';
 import api from '../../../services/api';
 import {pages} from '../../../enumerators/enums';
 import { Navigate } from "react-router-dom";
-
+import {writeLog} from '../../../utils/utils'
 
 function HomeBasic() {  
+  writeLog('Starting HomeBasic')
   const [isValid, setIsValid] = useState(false)
   function tokenExists(){
     return ("token" in localStorage && "userEmail" in localStorage)

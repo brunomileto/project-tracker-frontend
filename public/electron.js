@@ -1,9 +1,15 @@
-const {Menu, app, BrowserWindow, ipcMain, ipcRenderer	} = require('electron');
+const {app, BrowserWindow, ipcMain	} = require('electron');
 const path = require("path");
 const isDev = require('electron-is-dev');
 
+
+function writeLog(str, object){
+  console.log(`LOG: ${str}`)
+  if(object != undefined && typeof(object) != 'undefined' && object != null)
+    console.log(object)
+}
+
 let win;
-let menu;
 
 function createWindow() {
   // Create the browser window.
@@ -13,6 +19,7 @@ function createWindow() {
     resizable: false,
     autoHideMenuBar: true,
     webPreferences: {
+      contextIsolation: true,
       nodeIntegration: true, // is default value after Electron v5
       preload: path.join(__dirname, 'preload.js') // use a preload script
     },
@@ -25,11 +32,11 @@ function createWindow() {
       ? 'http://localhost:3000'
       : `file://${path.join(__dirname, '../build/index.html')}`,
   );
+
   // Open the DevTools.
   if (isDev) {
     win.webContents.openDevTools({ mode: 'detach' });
   }
-  
 }
 
 // This method will be called when Electron has finished
@@ -61,6 +68,6 @@ ipcMain.on('resize-back', (event, arg) => {
 
 ipcMain.on('resize', (event, arg) => {
   win.resizable = true;
-  win.setSize(181, 305)
+  win.setSize(185, 310)
   win.resizable = false;
 })

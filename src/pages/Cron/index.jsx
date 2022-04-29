@@ -63,7 +63,7 @@ function Cron(){
         setFormattedCron(newCronValue);
         api.updateTaskHour(newCronValue, uid);
         api.updateProjectHour();
-      }, 1000);
+      }, 1);
     } else if (!isActive && seconds !== 0) {
       clearInterval(interval);
     }
