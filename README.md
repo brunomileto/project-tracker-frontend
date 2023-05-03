@@ -12,11 +12,11 @@ It is ready to upload on [Heroku](https://heroku.com/). You can use the [Isomnia
 
 ![App Image](https://github.com/brunomileto/project-tracker-backend/blob/master/docs/assets/imgs/Screenshot_04.png?raw=true)
 
-![Projects List]()
+![Projects List](https://github.com/brunomileto/project-tracker-frontend/blob/master/Screenshot_01.png)
 
-![Tasks List]()
+![Tasks List](https://github.com/brunomileto/project-tracker-frontend/blob/master/Screenshot_02.png)
 
-![Tracking Time For A Task]()
+![Tracking Time For A Task](https://github.com/brunomileto/project-tracker-frontend/blob/master/Screenshot_03.png)
 
 ## Technology stack:
 
